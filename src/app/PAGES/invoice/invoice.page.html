@@ -1,0 +1,48 @@
+<div>
+  <mat-table [dataSource]="invoices" class="mat-elevation-z8">
+    <!-- ستون عنوان -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef class="!bg-blue-200 text-xl !font-semibold"> عنوان </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{ invoice.title }} </mat-cell>
+    </ng-container>
+
+    <!-- ستون تعداد -->
+    <ng-container matColumnDef="quantity">
+      <mat-header-cell *matHeaderCellDef class="!bg-blue-200 text-xl !font-semibold"> تعداد </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{ invoice.quantity }} </mat-cell>
+    </ng-container>
+
+    <!-- ستون قیمت -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef class="!bg-blue-200 text-xl !font-semibold"> قیمت پایه </mat-header-cell>
+      <mat-cell *matCellDef="let invoice"> {{ invoice.price }} </mat-cell>
+    </ng-container>
+
+    <!-- ستون عملیات -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef class="!bg-blue-200 text-xl !font-semibold !pl-12"> عملیات </mat-header-cell>
+      <mat-cell *matCellDef="let invoice">
+        <button mat-raised-button class="!bg-blue-400 !text-white !font-bold mr-2" (click)="editInvoice(invoice)">
+          ویرایش
+        </button>
+        <button mat-raised-button class="!bg-red-500 !text-white !font-bold" (click)="deleteInvoice(invoice)">
+          حذف
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- ردیف‌های جدول -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <!-- فیلد مجموع قیمت -->
+  <div class="flex justify-center mt-4">
+    <h3 class="text-xl font-bold">مجموع قیمت :</h3>
+    <span class="ml-4 text-xl font-bold">{{ getTotalPrice() | number:'1.0-0' }} تومان</span>
+  </div>
+
+  <!-- دکمه اضافه کردن -->
+  <button mat-raised-button class="m-4 !bg-blue-600 !text-white !font-black" (click)="openaddDialog()">اضافه
+    کردن</button>
+</div>

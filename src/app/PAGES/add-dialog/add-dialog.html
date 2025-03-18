@@ -1,0 +1,18 @@
+<div class="p-4">
+  <h1 class="text-xl text-center" mat-dialog-title>{{ data.title ? 'ویرایش فاکتور' : 'افزودن فاکتور' }}</h1>
+  <div mat-dialog-content>
+    <mat-form-field class="w-full">
+      <input matInput placeholder="عنوان" class="font-bold" [(ngModel)]="data.title">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <input matInput type="number" placeholder="تعداد" [(ngModel)]="data.quantity">
+    </mat-form-field>
+    <mat-form-field class="w-full">
+      <input matInput type="number" placeholder="قیمت پایه" [(ngModel)]="data.price">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="flex !justify-around">
+    <button mat-flat-button class="!bg-red-500 !px-4" (click)="onCancel()">لغو</button>
+    <button mat-flat-button class="!bg-teal-600" color="accent" (click)="onAdd()">افزودن</button>
+  </div>
+</div>

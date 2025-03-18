@@ -1,0 +1,21 @@
+<div class="bg-blue-200 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
+    <div class="">
+      <h2 class="text-center text-2xl font-semibold">"لطفا اطلاعات راوارد کنید"</h2>
+      <form class="login-style" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <label class="text-lg font-bold">نام کابری :</label>
+        <mat-form-field appearance="fill">
+          <mat-label></mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <br>
+        <label class="text-lg font-bold">گذرواژه :</label>
+        <mat-form-field appearance="fill">
+          <input matInput formControlName="password" />
+        </mat-form-field>
+        <br>
+        <button class="!font-black !text-lg" mat-flat-button type="submit">ثبت نام</button>
+      </form>
+    </div>
+  </div>
+</div>
